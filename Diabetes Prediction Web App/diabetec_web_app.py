@@ -50,5 +50,3 @@ if __name__ == '__main__':
         
 # pip install streamlit
 # pip install pickle-mixin
-
-# https://www.youtube.com/@SkillLync - Youtube channel link
