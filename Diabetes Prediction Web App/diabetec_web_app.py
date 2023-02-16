@@ -9,7 +9,7 @@ import numpy as np
 import pickle
 import streamlit as st
 
-loaded_model = pickle.load(open('D:/Downloads/trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('D:/Downloads/trained_model.sav', 'rb')) # Change the location of 'trained_model.sav' as per convinience
 
 def diabetic_prediction(input_data):
 
