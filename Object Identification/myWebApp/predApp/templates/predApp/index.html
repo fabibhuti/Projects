@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Prediction App</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <p><b>Please upload image of any object to see what could be it.</b></p>
+    <form action="{% url 'predApp:predict' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image"><br><br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>

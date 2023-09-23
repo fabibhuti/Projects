@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Prediction</h1>
+    <p><b>Based on the given image, Here are the top 3 predictions...</b></p>
+    <ol>
+        {% for i, j in res %}
+            <li>{{ i }} : {{ j }}%</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
