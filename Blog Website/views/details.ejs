@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="details content">
+        <h2><%= blog.title %></h2>
+        <div class="content">
+            <p><%= blog.body %></p>
+        </div>
+        <!-- <form action="/blogs/update/<%= blog._id %>" method="get"><button class="update"><i class="fa fa-edit" style="font-size:36px;color:rgb(21, 255, 0)"></i></button></form> -->
+        <a href="/blogs/<%= blog._id %>/update" class="update"><i class="fa fa-edit" style="font-size:36px;color:rgb(21, 255, 0)"></i></a>
+        <a class="delete" data-doc="<%= blog._id %>"><i class="fa fa-trash-o" style="font-size:36px;color:red"></i></a>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+        const trashcan = document.querySelector('a.delete');
+        trashcan.addEventListener('click', (event) => {
+            const endpoint =   `/blogs/${trashcan.dataset.doc}`;
+            fetch(endpoint, { 
+                method: 'DELETE', 
+            }).then((response) => response.json())
+            .then((data) => { 
+                window.location.href = data.redirect; 
+            }).catch((err) => { 
+                console.log(err);
+            });
+        });
+        
+        // const updatebtn = document.querySelector('a.update');
+        // updatebtn.addEventListener('click', (event) => {
+        //     const endpoint =   `/blogs/${trashcan.dataset.doc}/update`;
+        //     fetch(endpoint, { 
+        //         method: 'GET' 
+        //     }).then((response) => response.json())
+        //       .then((data) => {
+        //         window.location.href = data.render;
+        //     }).catch((err) => {
+        //         console.log(err)
+        //     });
+        // })
+
+    </script>
+</body>
+</html>
